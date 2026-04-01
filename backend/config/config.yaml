@@ -1,0 +1,18 @@
+model:
+  id: "anthropic.claude-3-5-sonnet-20240620-v1:0"
+  temperature: 0.1
+  max_tokens: 2048
+  aws_region: "us-east-1"
+
+data:
+  input_product_csv: /home/sagemaker-user/user-default-efs/adwaya_assignments/text_processing_for_product_descriptions/Product_Copy_Agent/data/raw/Mirakl10.14 (2).xlsx
+  input_instruction_path: /home/sagemaker-user/user-default-efs/adwaya_assignments/text_processing_for_product_descriptions/Product_Copy_Agent/data/instructions/Marketplace Copy Standards.docx
+  instructions_log_json: data/instructions/instructions_log.json
+  output_processed_csv: data/output/processed_product_copy.csv
+  
+  # Processing Parameters for Node 2
+  batch_size: 50
+  max_workers: 4 
+  
+  copy_column: productcopy
+  deduplication_column: variantGroupCode

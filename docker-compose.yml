@@ -1,0 +1,20 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: product-copy-backend-api
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+  
+  frontend:
+    build:
+      context: ./frontend/agent_ui
+      dockerfile: Dockerfile
+    container_name: product-copy-frontend-ui
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
